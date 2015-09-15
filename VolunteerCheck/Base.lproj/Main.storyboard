@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ga0-6W-nBP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Title Controller-->
+        <scene sceneID="qrP-LC-nzN">
+            <objects>
+                <viewController id="ga0-6W-nBP" customClass="TitleController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cfy-rE-nEl"/>
+                        <viewControllerLayoutGuide type="bottom" id="f5m-ba-RDQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="loadingLabel" id="37V-C6-JL1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFX-Zh-8BU">
+                                <rect key="frame" x="269" y="289" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="loadingLabel" destination="lFX-Zh-8BU" id="YHa-tb-Sh4"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goLogInSegue" id="aPH-rC-WPe"/>
+                        <segue destination="55Z-E4-aMn" kind="show" identifier="goToRosterSegue" id="iFB-MB-ikD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJ6-Wk-2ZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="-268"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +46,534 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Volunteer Identifier" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgX-cK-ZzK">
+                                <rect key="frame" x="16" y="100" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Log In Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A0-e9-9UK">
+                                <rect key="frame" x="16" y="33" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uPE-I5-S0Z">
+                                <rect key="frame" x="16" y="62" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Me8-sa-BmX">
+                                <rect key="frame" x="16" y="167" width="568" height="30"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ae-1t-hzg"/>
+                                    <segue destination="ooD-En-uSI" kind="unwind" unwindAction="unwindToTitle:" id="nES-Ho-2oB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvC-Je-g28">
+                                <rect key="frame" x="16" y="138" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKS-Tz-clq">
+                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <state key="normal" title="Not a member? Learn more.">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yOg-MW-Z9U" kind="show" id="0Yd-eq-Pag"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="enterLogInLabel" destination="8A0-e9-9UK" id="Nb5-ao-Wb5"/>
+                        <outlet property="logInButton" destination="Me8-sa-BmX" id="NCQ-fe-YCi"/>
+                        <outlet property="logInMessage" destination="KvC-Je-g28" id="iEN-jo-JKd"/>
+                        <outlet property="volEmailTextField" destination="uPE-I5-S0Z" id="dHf-vU-Pgm"/>
+                        <outlet property="volIDTextField" destination="ZgX-cK-ZzK" id="3Cc-3g-mCW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="ooD-En-uSI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="-532" y="460"/>
+        </scene>
+        <!--WillConsider.org-->
+        <scene sceneID="Zdd-jh-2ae">
+            <objects>
+                <viewController id="Wq1-yI-nJD" customClass="WebViewController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eov-NZ-oNP"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNR-yu-Y3P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pej-oE-2ir">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcv-4X-4Zn">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Stop" id="3iT-vF-F8F">
+                                        <connections>
+                                            <action selector="stopLoading" destination="ETL-hs-192" id="ukM-uC-UoK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="AmU-U8-1Lg"/>
+                                    <barButtonItem title="Refresh" id="Kst-nB-6zd">
+                                        <connections>
+                                            <action selector="reload" destination="ETL-hs-192" id="NFr-il-0ef"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="K5X-xV-Oyg"/>
+                                    <barButtonItem title="Back" id="han-Vy-bNN">
+                                        <connections>
+                                            <action selector="goBack" destination="ETL-hs-192" id="xLB-if-DIa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="63O-HE-POc"/>
+                                    <barButtonItem title="Fwd" id="Icg-GN-aJ2">
+                                        <connections>
+                                            <action selector="goForward" destination="ETL-hs-192" id="OBF-r4-xWu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ETL-hs-192">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ETL-hs-192" firstAttribute="top" secondItem="Pej-oE-2ir" secondAttribute="top" id="Dp4-H7-nrs"/>
+                            <constraint firstItem="rcv-4X-4Zn" firstAttribute="leading" secondItem="Pej-oE-2ir" secondAttribute="leading" id="LuL-Yc-Btx"/>
+                            <constraint firstItem="ETL-hs-192" firstAttribute="leading" secondItem="rcv-4X-4Zn" secondAttribute="leading" id="MA5-i5-7GR"/>
+                            <constraint firstAttribute="trailing" secondItem="rcv-4X-4Zn" secondAttribute="trailing" id="PVH-jK-P6f"/>
+                            <constraint firstItem="rcv-4X-4Zn" firstAttribute="top" secondItem="ETL-hs-192" secondAttribute="bottom" id="WaT-sc-h3a"/>
+                            <constraint firstItem="ETL-hs-192" firstAttribute="trailing" secondItem="rcv-4X-4Zn" secondAttribute="trailing" id="dZb-VQ-bjV"/>
+                            <constraint firstItem="rcv-4X-4Zn" firstAttribute="bottom" secondItem="SNR-yu-Y3P" secondAttribute="top" id="gfC-xF-bJw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="WillConsider.org" id="Du6-cl-omp">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="GgQ-85-8qL"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doRefresh" destination="Kst-nB-6zd" id="HOE-kb-u6H"/>
+                        <outlet property="goBack" destination="han-Vy-bNN" id="CID-x3-aoy"/>
+                        <outlet property="goForward" destination="Icg-GN-aJ2" id="aHA-FG-a99"/>
+                        <outlet property="stop" destination="3iT-vF-F8F" id="frZ-eL-4IZ"/>
+                        <outlet property="webView" destination="ETL-hs-192" id="zRS-aq-Fcz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="06b-Tu-LIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="578" y="1218"/>
+        </scene>
+        <!--Accepted Jobs-->
+        <scene sceneID="95S-rJ-cgn">
+            <objects>
+                <tableViewController id="qG5-Fc-DgN" customClass="AcceptedTableController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" id="31I-M3-OXm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventHeaderCell" rowHeight="80" id="UHK-oS-bxA" customClass="EventHeaderCell" customModule="VolunteerCheck" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="projectNameLabel" tableViewCell="UHK-oS-bxA" id="BaX-VC-sQh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="programName" text="Program Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95y-2N-GNz">
+                                            <rect key="frame" x="108" y="21" width="105" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventStartLabel" text="Event Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5A-zU-ol7">
+                                            <rect key="frame" x="108" y="50" width="105" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventEndLabel" text="Event End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4i-1A-hq4">
+                                            <rect key="frame" x="221" y="50" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PROGRAM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5G-Ui-YCe">
+                                            <rect key="frame" x="8" y="21" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZg-3p-imm">
+                                            <rect key="frame" x="8" y="50" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventDateLabel" text="Event Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ1-O0-7vB">
+                                            <rect key="frame" x="221" y="21" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="eventDateLabel" destination="TJ1-O0-7vB" id="Ym9-lV-ErJ"/>
+                                    <outlet property="eventEndLabel" destination="v4i-1A-hq4" id="1Zk-ej-Axm"/>
+                                    <outlet property="eventStartLabel" destination="W5A-zU-ol7" id="0Q1-i6-UiY"/>
+                                    <outlet property="programNameLabel" destination="95y-2N-GNz" id="f3L-4X-sqi"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="EventCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AcceptedCell" rowHeight="180" id="gAB-Vj-vPv" customClass="EventCell" customModule="VolunteerCheck" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="aceptBtn" tableViewCell="gAB-Vj-vPv" id="Iww-cL-bLk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="jobNameLabel" text="Job Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXi-dI-JCx">
+                                            <rect key="frame" x="108" y="8" width="107" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JOB:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVh-pt-1mx">
+                                            <rect key="frame" x="8" y="8" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DESC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q88-dN-Q1e">
+                                            <rect key="frame" x="8" y="37" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="areaDescriptionLabel" text="Job Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJt-0X-IM9">
+                                            <rect key="frame" x="108" y="37" width="484" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="rejectBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZN-VI-sZ8" customClass="ListButton" customModule="VolunteerCheck" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="66" width="87" height="30"/>
+                                            <state key="normal" title="Reject">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="rejectJobOffer:" destination="cvr-39-cGw" eventType="touchUpInside" id="jP5-XG-df2"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="areaDescriptionLabel" destination="PJt-0X-IM9" id="NZb-w5-Cvm"/>
+                                    <outlet property="jobNameLabel" destination="qXi-dI-JCx" id="Rkd-mm-cXe"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qG5-Fc-DgN" id="O6x-RH-hfk"/>
+                            <outlet property="delegate" destination="qG5-Fc-DgN" id="Chs-dl-rgR"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Accepted Jobs" id="Paq-1I-M3O"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sE3-Fb-lrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="-1023"/>
+        </scene>
+        <!--Rejected Jobs-->
+        <scene sceneID="cju-7b-fAo">
+            <objects>
+                <tableViewController id="PXP-Xp-AeZ" customClass="RejectedTableController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" id="aio-d2-vWc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventHeaderCell" rowHeight="80" id="EaS-LO-q1w" customClass="EventHeaderCell" customModule="VolunteerCheck" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="projectNameLabel" tableViewCell="EaS-LO-q1w" id="iya-CY-Jsh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="programName" text="Program Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6W-hO-zbN">
+                                            <rect key="frame" x="108" y="21" width="105" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventStartLabel" text="Event Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QH-iN-ToL">
+                                            <rect key="frame" x="108" y="50" width="105" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventEndLabel" text="Event End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8Y-FN-Z5h">
+                                            <rect key="frame" x="221" y="50" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PROGRAM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-gJ-HSa">
+                                            <rect key="frame" x="8" y="21" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwk-c6-pZT">
+                                            <rect key="frame" x="8" y="50" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventDateLabel" text="Event Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJo-WW-Txs">
+                                            <rect key="frame" x="221" y="21" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="eventDateLabel" destination="CJo-WW-Txs" id="08F-BE-50F"/>
+                                    <outlet property="eventEndLabel" destination="E8Y-FN-Z5h" id="b0M-a8-Z7a"/>
+                                    <outlet property="eventStartLabel" destination="5QH-iN-ToL" id="Pki-iz-Ffw"/>
+                                    <outlet property="programNameLabel" destination="C6W-hO-zbN" id="TfI-dC-oeB"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="RejectedCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RejectedCell" rowHeight="180" id="7g2-8g-mGX" customClass="EventCell" customModule="VolunteerCheck" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="aceptBtn" tableViewCell="7g2-8g-mGX" id="tQ1-BB-DKX">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="jobNameLabel" text="Job Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whF-DT-Mbr">
+                                            <rect key="frame" x="108" y="8" width="107" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JOB:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Js-a3-Lv6">
+                                            <rect key="frame" x="8" y="8" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DESC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdZ-dE-jdo">
+                                            <rect key="frame" x="8" y="37" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="areaDescriptionLabel" text="Job Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZv-Sb-Mkh">
+                                            <rect key="frame" x="108" y="37" width="484" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="areaDescriptionLabel" destination="cZv-Sb-Mkh" id="J0D-FY-Koq"/>
+                                    <outlet property="jobNameLabel" destination="whF-DT-Mbr" id="Oa7-2u-pzO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PXP-Xp-AeZ" id="Jrh-lQ-uMt"/>
+                            <outlet property="delegate" destination="PXP-Xp-AeZ" id="pmU-AA-47k"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Rejected Jobs" id="GfK-G9-aXd"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zi0-ae-Q3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="318"/>
+        </scene>
+        <!--Roster Tab Controller-->
+        <scene sceneID="AR0-0Y-eF1">
+            <objects>
+                <tabBarController id="55Z-E4-aMn" customClass="RosterTabController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ON3-gq-291">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cvr-39-cGw" kind="relationship" relationship="viewControllers" id="dpK-MD-b2c"/>
+                        <segue destination="qG5-Fc-DgN" kind="relationship" relationship="viewControllers" id="qKK-gc-pEg"/>
+                        <segue destination="PXP-Xp-AeZ" kind="relationship" relationship="viewControllers" id="wxn-iI-jps"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2z-5s-npT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="-262"/>
+        </scene>
+        <!--Roster Events-->
+        <scene sceneID="EaF-E6-tAK">
+            <objects>
+                <tableViewController id="cvr-39-cGw" customClass="RosterTableTableViewController" customModule="VolunteerCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tl9-Is-zMC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventHeaderCell" rowHeight="80" id="yZo-g7-KgB" customClass="EventHeaderCell" customModule="VolunteerCheck" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="projectNameLabel" tableViewCell="yZo-g7-KgB" id="1Bb-p6-OIu">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="programName" text="Program Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb9-pM-6GC">
+                                            <rect key="frame" x="108" y="21" width="105" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventStartLabel" text="Event Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-sQ-Nex">
+                                            <rect key="frame" x="108" y="50" width="105" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventEndLabel" text="Event End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHq-SG-705">
+                                            <rect key="frame" x="221" y="50" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PROGRAM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrq-2G-GVb">
+                                            <rect key="frame" x="8" y="21" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpM-6J-lxz">
+                                            <rect key="frame" x="8" y="50" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="eventDateLabel" text="Event Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yP-D1-hRV">
+                                            <rect key="frame" x="221" y="21" width="115" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="eventDateLabel" destination="9yP-D1-hRV" id="ti9-rb-kCO"/>
+                                    <outlet property="eventEndLabel" destination="NHq-SG-705" id="27q-z6-qJk"/>
+                                    <outlet property="eventStartLabel" destination="sQq-sQ-Nex" id="Ax4-tz-oLo"/>
+                                    <outlet property="programNameLabel" destination="Yb9-pM-6GC" id="Zr2-U7-ZxX"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="EventCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="180" id="Kg1-dh-NtM" customClass="EventCell" customModule="VolunteerCheck" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="aceptBtn" tableViewCell="Kg1-dh-NtM" id="9OU-gp-Tee">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="jobNameLabel" text="Job Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OD-SB-dfR">
+                                            <rect key="frame" x="108" y="8" width="107" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JOB:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMD-hG-CAq">
+                                            <rect key="frame" x="8" y="8" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DESC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1p-gf-WIO">
+                                            <rect key="frame" x="8" y="37" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="areaDescriptionLabel" text="Job Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIz-QZ-Koq">
+                                            <rect key="frame" x="108" y="37" width="484" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="acceptBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dj-OV-ZGo" customClass="ListButton" customModule="VolunteerCheck" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="66" width="92" height="30"/>
+                                            <state key="normal" title="Accept">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="acceptJobOffer:" destination="cvr-39-cGw" eventType="touchUpInside" id="akq-0Q-UhM"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="rejectBtn" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4t4-P8-zKQ" customClass="ListButton" customModule="VolunteerCheck" customModuleProvider="target">
+                                            <rect key="frame" x="108" y="66" width="87" height="30"/>
+                                            <state key="normal" title="Reject">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="rejectJobOffer:" destination="cvr-39-cGw" eventType="touchUpInside" id="zHd-3m-dds"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="acceptBtn" destination="8dj-OV-ZGo" id="575-et-PCu"/>
+                                    <outlet property="areaDescriptionLabel" destination="eIz-QZ-Koq" id="T4Y-u8-o8E"/>
+                                    <outlet property="jobNameLabel" destination="4OD-SB-dfR" id="6gF-8k-XaV"/>
+                                    <outlet property="rejectBtn" destination="4t4-P8-zKQ" id="MDM-eY-rq5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cvr-39-cGw" id="ITg-X7-8Jd"/>
+                            <outlet property="delegate" destination="cvr-39-cGw" id="CFR-BT-i7H"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="New Jobs" id="kp3-ax-co1"/>
+                    <navigationItem key="navigationItem" title="Roster Events" id="WEB-lu-4HP">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="rMO-q2-FO3"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tjs-n7-W7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="-356"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jv9-CX-8Ye">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yOg-MW-Z9U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DGa-21-Tjl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wq1-yI-nJD" kind="relationship" relationship="rootViewController" id="fFc-3d-lg0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uo-Ro-hd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-136" y="1218"/>
         </scene>
     </scenes>
 </document>

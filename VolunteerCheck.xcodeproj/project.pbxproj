@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF12638F1B946CFF00CEE26D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF12638E1B946CFF00CEE26D /* WebViewController.swift */; };
+		AF5319E91B9312E8008B36FB /* RosterEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5319E81B9312E8008B36FB /* RosterEvent.swift */; };
+		AF5319EF1B9332D0008B36FB /* Volunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5319EE1B9332D0008B36FB /* Volunteer.swift */; };
 		AF5C15B71B849610009EE9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15B61B849610009EE9DC /* AppDelegate.swift */; };
 		AF5C15B91B849610009EE9DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15B81B849610009EE9DC /* ViewController.swift */; };
 		AF5C15BC1B849610009EE9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C15BA1B849610009EE9DC /* Main.storyboard */; };
 		AF5C15BE1B849610009EE9DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5C15BD1B849610009EE9DC /* Images.xcassets */; };
 		AF5C15C11B849610009EE9DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF5C15BF1B849610009EE9DC /* LaunchScreen.xib */; };
 		AF5C15CD1B849610009EE9DC /* VolunteerCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15CC1B849610009EE9DC /* VolunteerCheckTests.swift */; };
+		AF5C15DD1B849860009EE9DC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15DC1B849860009EE9DC /* DataManager.swift */; };
+		AF5C15DE1B849860009EE9DC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15DC1B849860009EE9DC /* DataManager.swift */; };
+		AF5C15E61B849AD0009EE9DC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15E51B849AD0009EE9DC /* SwiftyJSON.swift */; };
+		AF5C15E81B86E31F009EE9DC /* RosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C15E71B86E31F009EE9DC /* RosterModel.swift */; };
+		AF692B761BA67E8200CD8632 /* ListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF692B751BA67E8200CD8632 /* ListButton.swift */; };
+		AF692B781BA6C65E00CD8632 /* RosterTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF692B771BA6C65E00CD8632 /* RosterTabController.swift */; };
+		AF692B7E1BA6CC3400CD8632 /* AcceptedTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF692B7D1BA6CC3400CD8632 /* AcceptedTableController.swift */; };
+		AF692B801BA6CC4B00CD8632 /* RejectedTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF692B7F1BA6CC4B00CD8632 /* RejectedTableController.swift */; };
+		AFB100B21B96C84000EBC86F /* EventJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB100B11B96C84000EBC86F /* EventJob.swift */; };
+		AFB514841B99374600110C3B /* EventHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB514831B99374600110C3B /* EventHeaderCell.swift */; };
+		AFB514861B99423100110C3B /* TitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB514851B99423100110C3B /* TitleController.swift */; };
+		AFB5148A1B99502400110C3B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB514891B99502400110C3B /* Promise.swift */; };
+		AFBF95D51B9415E400F4250C /* RosterTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF95D41B9415E400F4250C /* RosterTableTableViewController.swift */; };
+		AFBF95D71B941C3E00F4250C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBF95D61B941C3E00F4250C /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF12638E1B946CFF00CEE26D /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		AF5319E81B9312E8008B36FB /* RosterEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterEvent.swift; sourceTree = "<group>"; };
+		AF5319EE1B9332D0008B36FB /* Volunteer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Volunteer.swift; sourceTree = "<group>"; };
 		AF5C15B11B849610009EE9DC /* VolunteerCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolunteerCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5C15B51B849610009EE9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF5C15B61B849610009EE9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +56,19 @@
 		AF5C15C61B849610009EE9DC /* VolunteerCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VolunteerCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5C15CB1B849610009EE9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF5C15CC1B849610009EE9DC /* VolunteerCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerCheckTests.swift; sourceTree = "<group>"; };
+		AF5C15DC1B849860009EE9DC /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		AF5C15E51B849AD0009EE9DC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		AF5C15E71B86E31F009EE9DC /* RosterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterModel.swift; sourceTree = "<group>"; };
+		AF692B751BA67E8200CD8632 /* ListButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListButton.swift; sourceTree = "<group>"; };
+		AF692B771BA6C65E00CD8632 /* RosterTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTabController.swift; sourceTree = "<group>"; };
+		AF692B7D1BA6CC3400CD8632 /* AcceptedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptedTableController.swift; sourceTree = "<group>"; };
+		AF692B7F1BA6CC4B00CD8632 /* RejectedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RejectedTableController.swift; sourceTree = "<group>"; };
+		AFB100B11B96C84000EBC86F /* EventJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventJob.swift; sourceTree = "<group>"; };
+		AFB514831B99374600110C3B /* EventHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHeaderCell.swift; sourceTree = "<group>"; };
+		AFB514851B99423100110C3B /* TitleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleController.swift; sourceTree = "<group>"; };
+		AFB514891B99502400110C3B /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		AFBF95D41B9415E400F4250C /* RosterTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTableTableViewController.swift; sourceTree = "<group>"; };
+		AFBF95D61B941C3E00F4250C /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +89,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF5319E61B930CB3008B36FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF5319E71B930E4F008B36FB /* Library */,
+				AF5C15E71B86E31F009EE9DC /* RosterModel.swift */,
+				AF5319E81B9312E8008B36FB /* RosterEvent.swift */,
+				AFB100B11B96C84000EBC86F /* EventJob.swift */,
+				AF5319EE1B9332D0008B36FB /* Volunteer.swift */,
+				AF5C15DC1B849860009EE9DC /* DataManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AF5319E71B930E4F008B36FB /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				AF5C15E51B849AD0009EE9DC /* SwiftyJSON.swift */,
+				AFB514891B99502400110C3B /* Promise.swift */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		AF5C15A81B849610009EE9DC = {
 			isa = PBXGroup;
 			children = (
@@ -77,8 +132,10 @@
 		AF5C15B31B849610009EE9DC /* VolunteerCheck */ = {
 			isa = PBXGroup;
 			children = (
+				AF692B741BA67DC300CD8632 /* View */,
+				AFBF95D11B940D2100F4250C /* Controller */,
+				AF5319E61B930CB3008B36FB /* Model */,
 				AF5C15B61B849610009EE9DC /* AppDelegate.swift */,
-				AF5C15B81B849610009EE9DC /* ViewController.swift */,
 				AF5C15BA1B849610009EE9DC /* Main.storyboard */,
 				AF5C15BD1B849610009EE9DC /* Images.xcassets */,
 				AF5C15BF1B849610009EE9DC /* LaunchScreen.xib */,
@@ -110,6 +167,30 @@
 				AF5C15CB1B849610009EE9DC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF692B741BA67DC300CD8632 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF692B751BA67E8200CD8632 /* ListButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AFBF95D11B940D2100F4250C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF692B771BA6C65E00CD8632 /* RosterTabController.swift */,
+				AFBF95D41B9415E400F4250C /* RosterTableTableViewController.swift */,
+				AF692B7D1BA6CC3400CD8632 /* AcceptedTableController.swift */,
+				AF692B7F1BA6CC4B00CD8632 /* RejectedTableController.swift */,
+				AFBF95D61B941C3E00F4250C /* EventCell.swift */,
+				AFB514831B99374600110C3B /* EventHeaderCell.swift */,
+				AF12638E1B946CFF00CEE26D /* WebViewController.swift */,
+				AF5C15B81B849610009EE9DC /* ViewController.swift */,
+				AFB514851B99423100110C3B /* TitleController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +293,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5319E91B9312E8008B36FB /* RosterEvent.swift in Sources */,
+				AFB514841B99374600110C3B /* EventHeaderCell.swift in Sources */,
+				AFB5148A1B99502400110C3B /* Promise.swift in Sources */,
+				AF692B761BA67E8200CD8632 /* ListButton.swift in Sources */,
+				AFB514861B99423100110C3B /* TitleController.swift in Sources */,
+				AF12638F1B946CFF00CEE26D /* WebViewController.swift in Sources */,
+				AFB100B21B96C84000EBC86F /* EventJob.swift in Sources */,
+				AF5C15DD1B849860009EE9DC /* DataManager.swift in Sources */,
+				AFBF95D71B941C3E00F4250C /* EventCell.swift in Sources */,
 				AF5C15B91B849610009EE9DC /* ViewController.swift in Sources */,
+				AF5319EF1B9332D0008B36FB /* Volunteer.swift in Sources */,
+				AF692B781BA6C65E00CD8632 /* RosterTabController.swift in Sources */,
+				AF5C15E61B849AD0009EE9DC /* SwiftyJSON.swift in Sources */,
+				AF692B7E1BA6CC3400CD8632 /* AcceptedTableController.swift in Sources */,
+				AF5C15E81B86E31F009EE9DC /* RosterModel.swift in Sources */,
+				AFBF95D51B9415E400F4250C /* RosterTableTableViewController.swift in Sources */,
 				AF5C15B71B849610009EE9DC /* AppDelegate.swift in Sources */,
+				AF692B801BA6CC4B00CD8632 /* RejectedTableController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF5C15CD1B849610009EE9DC /* VolunteerCheckTests.swift in Sources */,
+				AF5C15DE1B849860009EE9DC /* DataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +509,7 @@
 				AF5C15D21B849610009EE9DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF5C15D31B849610009EE9DC /* Build configuration list for PBXNativeTarget "VolunteerCheckTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +518,7 @@
 				AF5C15D51B849610009EE9DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
