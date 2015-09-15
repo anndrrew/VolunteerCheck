@@ -152,6 +152,50 @@ class RosterModel: NSObject, Printable {
     }
     
     
+    // Remove Rostered event job and check if roster event needs deletion.
+    func removeAcceptedRosterEventJob(currEvent: RosterEvent, currJob: EventJob) -> Bool
+    {
+        // Find the roster event containing the job.
+        var j = 0
+        for event in acceptedRosterEvents
+        {
+            if (currEvent.programName == event.getProgramName() &&
+                currEvent.date == event.getEventDate())
+            {
+                // Find Job in event and its position in the array
+                var i = 0
+                for job in event.getEventJobs()
+                {
+                    if (job.areaName == currJob.areaName)
+                    {
+                        event.removeEventJob(i)
+                    }
+                    i++
+                }
+                
+                // Check if event has any more jobs
+                if (event.getEventJobs().count == 0)
+                {
+                    // Delete event aswell
+                    removeAcceptedEvent(j)
+                    return true
+                }
+                
+                return true
+            }
+            j++
+        }
+        return false
+    }
+    
+    
+    // Delete Accepted Roster Event
+    func removeAcceptedEvent(position: Int)
+    {
+        acceptedRosterEvents.removeAtIndex(position)
+    }
+    
+    
     // Add Roster Event to Roster Events array
     func addAcceptedRosterEvent(newEvent: RosterEvent)
     {

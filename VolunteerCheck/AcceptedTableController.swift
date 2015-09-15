@@ -85,6 +85,23 @@ class AcceptedTableController: UITableViewController {
         cell.jobNameLabel.text = rosterEvent.getAreaName()
         cell.areaDescriptionLabel.text = rosterEvent.getInformation()
         
+        cell.rejectBtn.tag = indexPath.row
+        cell.rejectBtn.tag2 = indexPath.section
+        cell.rejectBtn.addTarget(self, action: "rejectJobOffer:", forControlEvents: .TouchUpInside)
+        
         return cell
     }
+    
+    // MARK: - Actions
+    @IBAction func rejectJobOffer(sender: ListButton) {
+        // Add Selected Event to the Rejected Jobs Array
+        if(rosterModel.addRejectedRosterEventJob(rosterModel.getAcceptedRosterEvents()[sender.tag2!], newJob: rosterModel.getAcceptedRosterEvents()[sender.tag2!].getEventJobs()[sender.tag]))
+        {
+            // If successful remove from current roster list
+            rosterModel.removeAcceptedRosterEventJob(rosterModel.getAcceptedRosterEvents()[sender.tag2!], currJob: rosterModel.getAcceptedRosterEvents()[sender.tag2!].getEventJobs()[sender.tag])
+        }
+        
+        tableView.reloadData()
+    }
+    
 }

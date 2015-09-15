@@ -10,9 +10,8 @@ import UIKit
 
 class TitleController: UIViewController {
     // MARK: properties
-    
     var rosterModel = RosterModel()
-    var testVolunteer: Volunteer?
+    var currVolunteer: Volunteer?
     @IBOutlet weak var loadingLabel: UILabel!
     
     
@@ -33,7 +32,8 @@ class TitleController: UIViewController {
             rosterModel = self.getVolunteerData(rosterModel)
             
         } else {
-            
+            //
+        
             self.logInUser()
             
         }
@@ -49,21 +49,38 @@ class TitleController: UIViewController {
     // Check if User is logged in
     func userLoggedIn() -> Bool{
         
-        return true
+        var validEmail = "andy@gmail.com"
+        var validID = "0001"
+        
+        currVolunteer = loadTestVolunteer()
+        
+        if (currVolunteer!.id == validID && currVolunteer!.email == validEmail)
+        {
+            return true
+        }
+        
+        return false
         
     }
     
     
+    // Send Saved Volunteer details to the server to validate
+    func remoteCheckVolCredentials(testVolunteer: Volunteer) -> Bool
+    {
+        return true
+    }
+    
+    
     // MARK: - Action
-    @IBAction func unwindToTitle(sender: UIStoryboardSegue) {
-
-        
+    @IBAction func unwindToTitle(sender: UIStoryboardSegue)
+    {
         if let sourceViewController = sender.sourceViewController as? ViewController{
+            
+            currVolunteer = sourceViewController.testVolunteer
 
+            println(currVolunteer!.id)
             
-              println("Code Reached")
-              saveTestVolunteer()
-            
+            saveTestVolunteer()
         }
         
     }
@@ -95,12 +112,6 @@ class TitleController: UIViewController {
         
         if (segue.identifier == "goToRosterSegue"){
             
-//            let destinationNavigatiController = segue.destinationViewController as! UINavigationController
-//            
-//            let targetController = destinationNavigationController.topViewController as! RosterTableTableViewController
-//            
-//            targetController.rosterModel = rosterModel
-            
             let targetController = segue.destinationViewController as! RosterTabController
             
             targetController.rosterModel = rosterModel
@@ -112,7 +123,7 @@ class TitleController: UIViewController {
     
     func saveTestVolunteer(){
         
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(testVolunteer!, toFile: Volunteer.ArchiveURL.path!)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(currVolunteer!, toFile: Volunteer.ArchiveURL.path!)
         if !isSuccessfulSave {
             print("Failed to save Volunteer Details...")
         }
@@ -123,6 +134,8 @@ class TitleController: UIViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Volunteer.ArchiveURL.path!) as? Volunteer
         
     }
+
+    
     
     
     // Get Volunteer Roster From Server

@@ -69,7 +69,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="setLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ae-1t-hzg"/>
                                     <segue destination="ooD-En-uSI" kind="unwind" unwindAction="unwindToTitle:" id="nES-Ho-2oB"/>
                                 </connections>
                             </button>
@@ -272,7 +271,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="rejectJobOffer:" destination="cvr-39-cGw" eventType="touchUpInside" id="jP5-XG-df2"/>
+                                                <action selector="rejectJobOffer:" destination="qG5-Fc-DgN" eventType="touchUpInside" id="zr2-gw-4y8"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -280,6 +279,7 @@
                                 <connections>
                                     <outlet property="areaDescriptionLabel" destination="PJt-0X-IM9" id="NZb-w5-Cvm"/>
                                     <outlet property="jobNameLabel" destination="qXi-dI-JCx" id="Rkd-mm-cXe"/>
+                                    <outlet property="rejectBtn" destination="9ZN-VI-sZ8" id="s0Y-py-z7r"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
