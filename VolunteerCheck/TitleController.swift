@@ -18,7 +18,7 @@ class TitleController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
     }
     
     
@@ -26,14 +26,14 @@ class TitleController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-
+        
         if(userLoggedIn()){
             
             rosterModel = self.getVolunteerData(rosterModel)
             
         } else {
             //
-        
+            
             self.logInUser()
             
         }
@@ -48,25 +48,23 @@ class TitleController: UIViewController {
     
     // Check if User is logged in
     func userLoggedIn() -> Bool{
-        
-        var validEmail = "andy@gmail.com"
-        var validID = "0001"
-        
+        // Load test volunteer data from persistent memory
         currVolunteer = loadTestVolunteer()
         
-        if (currVolunteer!.id == validID && currVolunteer!.email == validEmail)
-        {
-            return true
-        }
+        // Create formated string to send on POST request
+        let postString = "id=" + currVolunteer!.id + "&email=" + currVolunteer!.email
         
-        return false
+        // If login redentials match return true
+        DataManager.sendLoginPostRequest(postString)
         
+        return true
     }
     
     
     // Send Saved Volunteer details to the server to validate
     func remoteCheckVolCredentials(testVolunteer: Volunteer) -> Bool
     {
+        
         return true
     }
     
@@ -77,14 +75,14 @@ class TitleController: UIViewController {
         if let sourceViewController = sender.sourceViewController as? ViewController{
             
             currVolunteer = sourceViewController.testVolunteer
-
+            
             println(currVolunteer!.id)
             
             saveTestVolunteer()
         }
         
     }
-
+    
     
     // MARK: - Navigation
     
@@ -101,7 +99,7 @@ class TitleController: UIViewController {
         
         println("Segue triggered")
         self.performSegueWithIdentifier("goToRosterSegue", sender: self)
-
+        
     }
     
     
@@ -134,7 +132,7 @@ class TitleController: UIViewController {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Volunteer.ArchiveURL.path!) as? Volunteer
         
     }
-
+    
     
     
     
@@ -147,38 +145,117 @@ class TitleController: UIViewController {
             // Get Array of values from JSON Object
             if let rosterArray = json["vol_roster"].array{
                 
-                //
-                for rosterDict in rosterArray{
-                    var volId: String? = rosterDict["volId"].string
-                    var programName: String? = rosterDict["programName"].string
-                    var date: String? = rosterDict["date"].string
-                    var startTime: String? = rosterDict["startTime"].string
-                    var endTime: String? = rosterDict["endTime"].string
-                    
-                    // Create temp Roster Event Object
-                    var event = RosterEvent(volId: volId, programName: programName, date: date, startTime: startTime, endTime: endTime)
-                    
-                    // Add New Roster event to events array
-                    rosterModel.addRosterEvent(event)
-                    
-                    // Add Jobs to Jobs array ascociated with the event
-                    if let jobArray = rosterDict["areaNames"].array{
+                for rosterList in rosterArray{
+                    if let newRoster = rosterList["new_roster"].array{
                         
-                        for jobDict in jobArray{
-                            var areaName: String? = jobDict["areaName"].string
-                            var confirmBy: String? = jobDict["confirmBy"].string
-                            var reminder: String? = jobDict["reminder"].string
-                            var information: String? = jobDict["description"].string
+                        //
+                        for rosterDict in newRoster{
+                            var volId: String? = rosterDict["volId"].string
+                            var programName: String? = rosterDict["programName"].string
+                            var date: String? = rosterDict["date"].string
+                            var startTime: String? = rosterDict["startTime"].string
+                            var endTime: String? = rosterDict["endTime"].string
                             
-                            // Create temp Event job object
-                            var job = EventJob(areaName: areaName,  confirmBy: confirmBy, reminder: reminder, information: information)
+                            // Create temp Roster Event Object
+                            var event = RosterEvent(volId: volId, programName: programName, date: date, startTime: startTime, endTime: endTime)
                             
-                            // Add new Job to Jobs Array
-                            rosterModel.getRosterEvent(programName!, eventDate: date!).addEventJob(job)
+                            // Add New Roster event to events array
+                            rosterModel.addRosterEvent(event)
+                            
+                            // Add Jobs to Jobs array ascociated with the event
+                            if let jobArray = rosterDict["areaNames"].array{
+                                
+                                for jobDict in jobArray{
+                                    var areaName: String? = jobDict["areaName"].string
+                                    var confirmBy: String? = jobDict["confirmBy"].string
+                                    var reminder: String? = jobDict["reminder"].string
+                                    var information: String? = jobDict["description"].string
+                                    
+                                    // Create temp Event job object
+                                    var job = EventJob(areaName: areaName,  confirmBy: confirmBy, reminder: reminder, information: information)
+                                    
+                                    // Add new Job to Jobs Array
+                                    rosterModel.getRosterEvent(programName!, eventDate: date!).addEventJob(job)
+                                }
+                            }
+                            // DEBUG: Print out Roster details
+                            println(rosterModel.getRosterEvents())
+                        }
+                        
+                    }
+                    if let acceptedRoster = rosterList["accepted_roster"].array{
+                        
+                        //
+                        for rosterDict in acceptedRoster{
+                            var volId: String? = rosterDict["volId"].string
+                            var programName: String? = rosterDict["programName"].string
+                            var date: String? = rosterDict["date"].string
+                            var startTime: String? = rosterDict["startTime"].string
+                            var endTime: String? = rosterDict["endTime"].string
+                            
+                            // Create temp Roster Event Object
+                            var event = RosterEvent(volId: volId, programName: programName, date: date, startTime: startTime, endTime: endTime)
+                            
+                            // Add New Roster event to events array
+                            rosterModel.addAcceptedRosterEvent(event)
+                            
+                            // Add Jobs to Jobs array ascociated with the event
+                            if let jobArray = rosterDict["areaNames"].array{
+                                
+                                for jobDict in jobArray{
+                                    var areaName: String? = jobDict["areaName"].string
+                                    var confirmBy: String? = jobDict["confirmBy"].string
+                                    var reminder: String? = jobDict["reminder"].string
+                                    var information: String? = jobDict["description"].string
+                                    
+                                    // Create temp Event job object
+                                    var job = EventJob(areaName: areaName,  confirmBy: confirmBy, reminder: reminder, information: information)
+                                    
+                                    // Add new Job to Jobs Array
+                                    rosterModel.getAcceptedRosterEvent(programName!, eventDate: date!).addEventJob(job)
+                                }
+                            }
+                            // DEBUG: Print out Roster details
+                            println(rosterModel.getAcceptedRosterEvents())
+                        }
+                        
+                    }
+                    if let rejectedRoster = rosterList["rejected_roster"].array{
+                        
+                        //
+                        for rosterDict in rejectedRoster{
+                            var volId: String? = rosterDict["volId"].string
+                            var programName: String? = rosterDict["programName"].string
+                            var date: String? = rosterDict["date"].string
+                            var startTime: String? = rosterDict["startTime"].string
+                            var endTime: String? = rosterDict["endTime"].string
+                            
+                            // Create temp Roster Event Object
+                            var event = RosterEvent(volId: volId, programName: programName, date: date, startTime: startTime, endTime: endTime)
+                            
+                            // Add New Roster event to events array
+                            rosterModel.addRejectedRosterEvent(event)
+                            
+                            // Add Jobs to Jobs array ascociated with the event
+                            if let jobArray = rosterDict["areaNames"].array{
+                                
+                                for jobDict in jobArray{
+                                    var areaName: String? = jobDict["areaName"].string
+                                    var confirmBy: String? = jobDict["confirmBy"].string
+                                    var reminder: String? = jobDict["reminder"].string
+                                    var information: String? = jobDict["description"].string
+                                    
+                                    // Create temp Event job object
+                                    var job = EventJob(areaName: areaName,  confirmBy: confirmBy, reminder: reminder, information: information)
+                                    
+                                    // Add new Job to Jobs Array
+                                    rosterModel.getRejectedRosterEvent(programName!, eventDate: date!).addEventJob(job)
+                                }
+                            }
+                            // DEBUG: Print out Roster details
+                            println(rosterModel.getRejectedRosterEvents())
                         }
                     }
-                    // DEBUG: Print out Roster details
-                    println(rosterModel.getRosterEvents())
                 }
                 // Once data retrieved start segue to Roster View
                 self.goToRoster()

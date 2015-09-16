@@ -9,7 +9,9 @@
 import Foundation
 
 
-let VOLUNTEER_DETAILS = "http://willconsider.org/swiftdata/roster_test.json"
+let VOLUNTEER_DETAILS = "http://willconsider.org/swiftdata/roster_test_detailed.json"
+let VOLUNTEER_CRED_CHECK_URL = "http://willconsider.org/swiftdata/login_test.php"
+let TEST_POST_STRING = "id=0001&email=andy@gmail.com"
 let HTTP_WRONG_CODE_STRING = "HTTP status code has unexpected value."
 let REQUEST_DOMAIN = "org.willconsider"
 
@@ -97,4 +99,39 @@ class DataManager: NSObject{
         
         loadDataTask.resume()
     }
+    
+    // Send POST request to server
+    class func sendLoginPostRequest(postString: String) -> Bool
+    {
+        var responseString: NSString?
+        let request = NSMutableURLRequest(URL: NSURL(string: VOLUNTEER_CRED_CHECK_URL)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                println("error=\(error)")
+                return
+            }
+            
+            println("response = \(response)")
+            
+            responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("responseString = \(responseString)")
+
+        }
+        task.resume()
+        
+        return true
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
